@@ -39,7 +39,6 @@ gem 'jbuilder'
 # Frontend
 gem 'hamlit'
 gem 'simple_form'
-
 # Databases
 gem 'annotate'
 # Pagination
