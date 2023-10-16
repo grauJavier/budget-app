@@ -17,17 +17,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_15_231000) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.string "icon"
-    t.integer "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "category_transactions", id: false, force: :cascade do |t|
+  create_table "categories_transactions", id: false, force: :cascade do |t|
     t.bigint "category_id"
     t.bigint "transaction_id"
-    t.index ["category_id", "transaction_id"], name: "index_category_transactions_on_category_id_and_transaction_id", unique: true
-    t.index ["category_id"], name: "index_category_transactions_on_category_id"
-    t.index ["transaction_id"], name: "index_category_transactions_on_transaction_id"
+    t.index ["category_id", "transaction_id"], name: "index_categories_transactions_on_category_id_and_transaction_id", unique: true
+    t.index ["category_id"], name: "index_categories_transactions_on_category_id"
+    t.index ["transaction_id"], name: "index_categories_transactions_on_transaction_id"
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -47,6 +46,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_15_231000) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
