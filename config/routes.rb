@@ -4,4 +4,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
+
+  # Defines the route for "splash/index"
+  get "/splash/index", to: "splash#index"  
 end
+
