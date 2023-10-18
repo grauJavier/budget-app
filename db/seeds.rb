@@ -6,22 +6,28 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+icons = ['attach_money', 'shopping_cart', 'restaurant', 
+         'direction_bus', 'sports_esports', 'home_repair_service',
+         'heart_check', 'school', 'move_to_inbox']
+
 testUser1 = User.create!(
   name: "Test User 1",
-  email: "test_user_1@gmail.com",
-  password: "123456"
+  email: "test_user_1@example.com",
+  password: "123456",
+  confirmed_at: Time.now
 )
 
 testUser2 = User.create!(
   name: "Test User 2",
   email: "test_user_2@example.com",
-  password: "123456"
+  password: "123456",
+  confirmed_at: Time.now
 )
 
-category1 = Category.create!(author_id: testUser1.id, name: "Category 1", icon: "Icon 1")
-category2 = Category.create!(author_id: testUser1.id, name: "Category 2", icon: "Icon 2")
-category3 = Category.create!(author_id: testUser2.id, name: "Category 3", icon: "Icon 3")
-category4 = Category.create!(author_id: testUser2.id, name: "Category 4", icon: "Icon 4")
+category1 = Category.create!(author_id: testUser1.id, name: "Category 1", icon: icons.pop)
+category2 = Category.create!(author_id: testUser1.id, name: "Category 2", icon: icons.pop)
+category3 = Category.create!(author_id: testUser2.id, name: "Category 3", icon: icons.pop)
+category4 = Category.create!(author_id: testUser2.id, name: "Category 4", icon: icons.pop)
 
 transaction1 = testUser1.transactions.create!(author_id: testUser1.id, name: "Transaction 1", amount: 1000)
 transaction2 = testUser1.transactions.create!(author_id: testUser1.id, name: "Transaction 2", amount: 1000)
