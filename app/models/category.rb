@@ -5,4 +5,8 @@ class Category < ApplicationRecord
 
   validates :name, presence: true
   validates :icon, presence: true
+
+  def total_amount
+    related_transactions.sum(:amount)
+  end
 end
