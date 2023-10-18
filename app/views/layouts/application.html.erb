@@ -10,9 +10,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   </head>
   <body>
-    <% if user_signed_in? %>
-      <%= link_to 'Exit session', destroy_user_session_path, data: { turbo_method: :delete } %>
-    <% end %>
     <%= yield %>
   </body>
 </html>

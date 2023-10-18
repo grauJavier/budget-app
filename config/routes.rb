@@ -7,5 +7,9 @@ Rails.application.routes.draw do
 
   # Defines the route for "splash/index"
   get "/splash/index", to: "splash#index"  
+  
+  resources :categories do
+    resources :transactions, only: [:index]
+  end
 end
 

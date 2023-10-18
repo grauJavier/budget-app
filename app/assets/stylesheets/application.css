@@ -15,7 +15,7 @@
  */
 
 @import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;700&display=swap');
 
 * {
   /* Color Variables */
@@ -59,6 +59,22 @@ ol {
 
 a {
   text-decoration: none;
+}
+
+.material-symbols-outlined {
+  line-height: unset !important;
+}
+
+.form-inputs div input {
+  border-bottom: 0 !important;
+}
+
+.form-inputs {
+  border-bottom: 1px solid;
+}
+
+.bg-ligther {
+  background-color: var(--ligther-color);
 }
 
 .grey-color {
@@ -114,6 +130,10 @@ a {
   margin-top: auto;
 }
 
+.mt-1 {
+  margin-top: 1rem;
+}
+
 .w-100 {
   width: 100%;
 }
@@ -125,6 +145,11 @@ a {
 .absolute-start {
   position: absolute;
   left: 1rem;
+}
+
+.absolute-end {
+  position: absolute;
+  right: 1rem;
 }
 
 .absolute-center {
@@ -139,6 +164,11 @@ a {
   bottom: 0;
 }
 
+.fixed-bottom {
+  position: fixed;
+  bottom: 0;
+}
+
 .space-between {
   justify-content: space-between;
 }
@@ -148,7 +178,6 @@ a {
   padding: 1rem;
   color: var(--white-color);
   text-transform: uppercase;
-  margin-bottom: 1rem;
 }
 
 .header h2 {
@@ -246,10 +275,41 @@ a {
   position: absolute;
 }
 
-.form-inputs div input {
-  border-bottom: 0 !important;
+#home_total {
+  background-color: var(--white-color);
+  box-shadow: 0 0 0.13rem var(--light-color);
 }
 
-.form-inputs {
-  border-bottom: 1px solid;
+#new-transaction-icon {
+  gap: 0.2rem;
+}
+
+.category_item {
+  background-color: var(--white-color);
+  border-radius: 0.1rem;
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: 0 0 0.11rem var(--light-color);
+}
+
+.category_icon {
+  font-size: 3rem !important;
+  min-width: 4rem;
+  min-height: 4rem;
+  padding-top: 3px;
+  margin-right: 1rem;
+  color: var(--white-color);
+  background-color: var(--secondary-color);
+}
+
+.category_title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--light-color);
+}
+
+.category_total {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--black-color);
 }
