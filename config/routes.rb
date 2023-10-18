@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get "/splash/index", to: "splash#index"  
   
   resources :categories do
-    resources :transactions, only: [:index]
+    resources :transactions, only: [:index, :new, :create]
   end
 end
 

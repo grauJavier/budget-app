@@ -63,6 +63,7 @@ a {
 
 .material-symbols-outlined {
   line-height: unset !important;
+  font-size: inherit !important;
 }
 
 .form-inputs div input {
@@ -97,6 +98,10 @@ a {
   flex-direction: column;
 }
 
+.align-center {
+  align-content: center;
+}
+
 .center {
   justify-content: center;
   align-items: center;
@@ -107,6 +112,16 @@ a {
   align-self: center;
   justify-self: center;
   text-align: center;
+}
+
+.end-self {
+  align-self: flex-end;
+  justify-self: flex-end;
+  text-align: right;
+}
+
+.g-1{
+  gap: 1rem;
 }
 
 .italic {
@@ -132,6 +147,10 @@ a {
 
 .mt-1 {
   margin-top: 1rem;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
 }
 
 .w-100 {
@@ -183,6 +202,10 @@ a {
 .header h2 {
   font-size: 1rem;
   font-weight: 400;
+}
+
+.header .material-symbols-outlined {
+  font-size: 1rem !important;
 }
 
 .input-field {
@@ -275,11 +298,6 @@ a {
   position: absolute;
 }
 
-#home_total {
-  background-color: var(--white-color);
-  box-shadow: 0 0 0.13rem var(--light-color);
-}
-
 #new-transaction-icon {
   gap: 0.2rem;
 }
@@ -312,4 +330,26 @@ a {
   font-size: 0.8rem;
   font-weight: 700;
   color: var(--black-color);
+}
+
+.sub-header {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--black-color);
+  background-color: var(--white-color);
+  box-shadow: 0 0 0.13rem var(--light-color);
+}
+
+#transactions_list {
+  background-color: var(--white-color);
+  box-shadow: 0 0 0.13rem var(--light-color);
+  margin: 1rem;
+}
+
+.transaction-list li:not(:last-child):after{
+  content:"";
+  display: block;
+  margin: 1rem auto;
+  border-bottom: 1px solid #cccccc;
+  width: 100%;
 }

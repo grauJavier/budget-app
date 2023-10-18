@@ -13,7 +13,7 @@
       +
     <% end %>
   </div>
-  <div id="home_total" class="p-1 d-flex space-between w-100">
+  <div class="p-1 d-flex space-between w-100 sub-header">
     <h2 class="category_title">Total</h2>
     <p class="category_total"><%= number_to_currency(@categories.sum(&:total_amount), unit: "$", precision: 2) %></p>
   </div>
