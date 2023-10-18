@@ -3,38 +3,39 @@ require 'rails_helper'
 
 RSpec.describe Transaction, type: :model do
   it 'is valid with valid attributes' do
-    user = User.create(name: 'John Doe', email: 'john.doe@example.com', password: 'password123')
+    user = User.create(name: 'Javier Grau', email: 'javier.grau@example.com', password: 'password123')
     transaction = Transaction.new(name: 'Grocery', amount: 50.0, author: user)
     expect(transaction).to be_valid
   end
 
   it 'is not valid without a name' do
-    user = User.create(name: 'John Doe', email: 'john.doe@example.com', password: 'password123')
+    user = User.create(name: 'Javier Grau', email: 'javier.grau@example.com', password: 'password123')
     transaction = Transaction.new(amount: 50.0, author: user)
     expect(transaction).not_to be_valid
   end
 
   it 'is not valid without an amount' do
-    user = User.create(name: 'John Doe', email: 'john.doe@example.com', password: 'password123')
+    user = User.create(name: 'Javier Grau', email: 'javier.grau@example.com', password: 'password123')
     transaction = Transaction.new(name: 'Grocery', author: user)
     expect(transaction).not_to be_valid
   end
 
   it 'is not valid with a non-positive amount' do
-    user = User.create(name: 'John Doe', email: 'john.doe@example.com', password: 'password123')
+    user = User.create(name: 'Javier Grau', email: 'javier.grau@example.com', password: 'password123')
     transaction = Transaction.new(name: 'Grocery', amount: -10.0, author: user)
     expect(transaction).not_to be_valid
   end
 
   it 'is associated with a user' do
-    user = User.create(name: 'John Doe', email: 'john.doe@example.com', password: 'password123')
+    user = User.create(name: 'Javier Grau', email: 'javier.grau@example.com', password: 'password123')
     transaction = Transaction.new(name: 'Grocery', amount: 50.0, author: user)
     expect(transaction.author).to eq(user)
   end
 
   it 'can be associated with categories' do
-    category = Category.create(name: 'Food', icon: 'icon.png', author_id: 5)
-    transaction = Transaction.create(name: 'Grocery', amount: 50, author_id: 11)
+    user = User.create(name: 'Javier Grau', email: 'javier.grau@example.com', password: 'password123')
+    category = Category.create(name: 'Food', icon: 'icon.png', author: user)
+    transaction = Transaction.new(name: 'Grocery', amount: 50.0, author: user)
 
     transaction.related_categories << category
     expect(transaction.related_categories).to include(category)
