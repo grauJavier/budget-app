@@ -32,7 +32,7 @@ RSpec.describe Category, type: :model do
     category = Category.create(name: 'Food', icon: 'icon.png', author: user)
     transaction = Transaction.create(name: 'Grocery', amount: 50, author: user)
 
-    category_transaction = CategoryTransaction.create(
+    CategoryTransaction.create(
       related_category: category,
       related_transaction: transaction
     )
