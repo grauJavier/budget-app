@@ -10,23 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_15_231000) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_17_222103) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
+    t.integer "author_id"
     t.string "name"
     t.string "icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "categories_transactions", id: false, force: :cascade do |t|
-    t.bigint "category_id"
-    t.bigint "transaction_id"
-    t.index ["category_id", "transaction_id"], name: "index_categories_transactions_on_category_id_and_transaction_id", unique: true
-    t.index ["category_id"], name: "index_categories_transactions_on_category_id"
-    t.index ["transaction_id"], name: "index_categories_transactions_on_transaction_id"
+  create_table "category_transactions", force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.bigint "transaction_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_category_transactions_on_category_id"
+    t.index ["transaction_id"], name: "index_category_transactions_on_transaction_id"
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -55,4 +57,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_15_231000) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "category_transactions", "categories"
+  add_foreign_key "category_transactions", "transactions"
 end
