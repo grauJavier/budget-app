@@ -94,7 +94,7 @@ The project is built using the following technologies:
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- 🎤 [Project presentation: video demo](https://drive.google.com/file/d/1-eSDabquIJCbvbQblqBPvSwbDIvaRfIb/view?usp=sharing)
+- 🎤 [Project presentation: video demo](https://www.loom.com/share/5e0e6c14dd524600872939bc8df9e477?sid=4da0055f-cd3d-4b43-9a28-f1510806e84f)
 - [Live Demo Link](https://wise-wallet-ot5b.onrender.com)
 
 
