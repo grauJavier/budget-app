@@ -1,4 +1,5 @@
 class TransactionsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_category
 
   def index
@@ -11,12 +12,26 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = @category.related_transactions.build(transaction_params)
-    if @transaction.save
-      redirect_to category_transactions_path(@category)
+    @transaction.author = current_user
+
+    categories_ids = params[:transaction][:related_categories].reject(&:empty?)
+
+    if categories_ids.present?
+      if @transaction.save
+        categories_ids.each do |category_id|
+          CategoryTransaction.create(category_id:, transaction_id: @transaction.id)
+        end
+        redirect_to category_transactions_path(@category)
+      else
+        flash[:alert] = 'Transaction could not be saved.'
+        render :new
+      end
     else
+      flash[:alert] = 'Please select at least one category.'
       render :new
     end
   end
+
 
   private
 
@@ -25,6 +40,6 @@ class TransactionsController < ApplicationController
   end
 
   def transaction_params
-    params.require(:transaction).permit(:amount, :name, related_category_ids: [])
-  end   
+    params.require(:transaction).permit(:amount, :name)
+  end
 end
