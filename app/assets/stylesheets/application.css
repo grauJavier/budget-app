@@ -16,6 +16,7 @@
 
 @import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined');
 
 * {
   /* Color Variables */
@@ -78,6 +79,10 @@ a {
   background-color: var(--ligther-color);
 }
 
+.bg-white {
+  background-color: var(--white-color);
+}
+
 .grey-color {
   color: var(--grey-color);
 }
@@ -100,6 +105,7 @@ a {
 
 .align-center {
   align-content: center;
+  align-items: center;
 }
 
 .center {
@@ -120,7 +126,7 @@ a {
   text-align: right;
 }
 
-.g-1{
+.g-1 {
   gap: 1rem;
 }
 
@@ -129,6 +135,7 @@ a {
 }
 
 .full-screen {
+  padding-top: 3rem;
   height: 100vh;
   width: 100vw;
 }
@@ -143,6 +150,10 @@ a {
 
 .mt-auto {
   margin-top: auto;
+}
+
+.m-1 {
+  margin: 1rem;
 }
 
 .mt-1 {
@@ -197,6 +208,9 @@ a {
   padding: 1rem;
   color: var(--white-color);
   text-transform: uppercase;
+  position: fixed;
+  width: 100%;
+  top: 0;
 }
 
 .header h2 {
@@ -269,6 +283,13 @@ a {
   }
 }
 
+.fade-out {
+  animation-name: fadeOut, display-none;
+  animation-delay: 5s, 1s;
+  animation-duration: 1s, 0s;
+  animation-fill-mode: forwards;
+}
+
 #intro-screen {
   background-image: var(--top-right-gradient);
   position: absolute;
@@ -298,8 +319,16 @@ a {
   position: absolute;
 }
 
+#home {
+  padding-bottom: 5rem;
+}
+
 #new-transaction-icon {
   gap: 0.2rem;
+}
+
+.transaction-date {
+  padding-right: 0.11rem;
 }
 
 .category_item {
@@ -340,16 +369,33 @@ a {
   box-shadow: 0 0 0.13rem var(--light-color);
 }
 
-#transactions_list {
+#transactions_list,
+#categories_list {
   background-color: var(--white-color);
   box-shadow: 0 0 0.13rem var(--light-color);
   margin: 1rem;
 }
 
-.transaction-list li:not(:last-child):after{
-  content:"";
+.transaction-list li:not(:last-child)::after {
+  content: "";
   display: block;
   margin: 1rem auto;
-  border-bottom: 1px solid #cccccc;
+  border-bottom: 1px solid #ccc;
   width: 100%;
+}
+
+.category_element {
+  gap: 0.5rem;
+  font-size: 1.1rem !important;
+  color: var(--grey-color);
+}
+
+#icon-select,
+#icon-select option {
+  background-color: var(--secondary-color);
+  color: var(--white-color);
+  font-family: 'Material Icons Outlined', Arial, Helvetica, sans-serif;
+  font-size: 2rem !important;
+  padding: 1rem;
+  border-radius: 0.2rem;
 }

@@ -6,16 +6,10 @@
       </span>
     <% end %>
     <h2>Home</h2>
-    <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: "absolute-end white-color d-flex", id: "new-transaction-icon" do %>
-      <span class="material-symbols-outlined">
-        payments
-      </span>
-      +
-    <% end %>
   </div>
   <div class="p-1 d-flex space-between w-100 sub-header">
-    <h2 class="category_title">Total</h2>
-    <p class="category_total"><%= number_to_currency(@categories.sum(&:total_amount), unit: "$", precision: 2) %></p>
+    <h2 class="category_title">Total of all transactions</h2>
+    <p class="category_total"><%= number_to_currency(current_user.transactions.sum(:amount), unit: "$", precision: 2) %></p>
   </div>
   <% @categories.each do |category| %>
     <%= link_to category_transactions_path(category) do %>

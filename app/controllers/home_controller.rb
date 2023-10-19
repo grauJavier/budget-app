@@ -1,7 +1,9 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!
-
   def index
-    @categories = Category.where(author: current_user)
+    if user_signed_in?
+      @categories = Category.where(author: current_user)
+    else
+      redirect_to splash_index_path
+    end
   end
 end
