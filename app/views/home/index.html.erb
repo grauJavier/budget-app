@@ -11,17 +11,21 @@
     <h2 class="category_title">Total of all transactions</h2>
     <p class="category_total"><%= number_to_currency(current_user.transactions.sum(:amount), unit: "$", precision: 2) %></p>
   </div>
-  <% @categories.each do |category| %>
-    <%= link_to category_transactions_path(category) do %>
-      <div class="category_item d-flex g-1">
-        <span class="material-symbols-outlined category_icon center"><%= category.icon %></span>
-        <div class="d-flex space-between w-100 mt-1">
-          <h2 class="category_title"><%= category.name %></h2>
-          <p class="category_total"><%= number_to_currency(category.total_amount, unit: "$", precision: 2) %></p>
-        </div>
-      </div>
+  <div class="category_item d-flex g-1">
+    <% if @categories.any? %>
+      <% @categories.each do |category| %>
+        <%= link_to category_transactions_path(category), class: "d-flex w-100" do %>
+          <span class="material-symbols-outlined category_icon center"><%= category.icon %></span>
+          <div class="d-flex space-between w-100 mt-1">
+            <h2 class="category_title"><%= category.name %></h2>
+            <p class="category_total"><%= number_to_currency(category.total_amount, unit: "$", precision: 2) %></p>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <small class="no-transactions grey-color">No categories added yet.</small>
     <% end %>
-  <% end %>
+  </div>
   <div class="w-100 outline-white absolute-bottom p-1 d-flex center fixed-bottom">
     <%= link_to 'Add a new category', new_category_path, class: "btn-secondary" %>
   </div>
