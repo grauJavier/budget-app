@@ -1,10 +1,9 @@
 <a name="readme-top"></a>
 
-<div align="center">
-  <img src="./public/android-chrome-192x192.png" width="150px" style="border-radius: 0.3rem">
-  <img src="./app/assets/images/logo_dark.png" width="300px">
+<div align="center" style="display: flex; gap: 1rem; margin: 1rem; align-items: center">
+  <img src="./public/android-chrome-192x192.png" width="100px" style="border-radius: 0.3rem">
+  <img src="./app/assets/images/logo_dark.png" width="300px" heigth="120px">
 </div>
-
 
 <!-- TABLE OF CONTENTS -->
 
@@ -38,7 +37,7 @@
 **Wise Wallet** (Budget App) is a Ruby on Rails web application designed for managing your budget. It allows users to keep track of their financial transactions, categorize expenses, and monitor spending habits. Key features of the app include user registration and authentication, creating and managing categories, adding transactions to categories, and providing insights into spending by category.
 
 These is the ERD for the project:
-![image](.public\erd_diagram.png) 
+![image](./public/erd_diagram.png) 
 
 
 ---
