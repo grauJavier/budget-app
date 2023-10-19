@@ -72,7 +72,7 @@ a {
 }
 
 .form-inputs {
-  border-bottom: 1px solid;
+  border-bottom: 1px solid var(--light-color);
 }
 
 .bg-ligther {
@@ -398,4 +398,5 @@ a {
   font-size: 2rem !important;
   padding: 1rem;
   border-radius: 0.2rem;
+  border: 0;
 }
