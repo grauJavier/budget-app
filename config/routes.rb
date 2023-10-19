@@ -6,10 +6,12 @@ Rails.application.routes.draw do
   root "home#index"
 
   # Defines the route for "splash/index"
-  get "/splash/index", to: "splash#index"  
-  
+  get "/splash/index", to: "splash#index"
+
   resources :categories do
     resources :transactions, only: [:index, :new, :create]
   end
+
+  resources :categories, only: [:index, :new, :create]
 end
 
