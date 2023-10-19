@@ -16,8 +16,8 @@
     <h2 class="category_title">Category Total</h2>
     <p class="category_total"><%= number_to_currency(@category.total_amount, unit: "$", precision: 2) %></p>
   </div>
-  <div id="transactions_list" class="p-1">
-    <% if @transactions.any? %>
+  <% if @transactions.any? %>
+    <div id="transactions_list" class="p-1">
       <ul class="transaction-list">
         <% @transactions.each do |transaction| %>
           <li class="transaction-item">
@@ -36,10 +36,12 @@
           </li>
         <% end %>
       </ul>
-    <% else %>
-      <small class="no-transactions grey-color">No transactions in this category yet.</small>
-    <% end %>
-  </div>
+    </div>
+  <% else %>
+    <div id="transactions_list" class="p-1 d-flex center">
+      <small class="no-transactions italic grey-color">No transactions in this category yet.</small>
+    </div>
+  <% end %>
   <div class="w-100 outline-white absolute-bottom p-1 d-flex center fixed-bottom">
     <%= link_to new_category_transaction_path(@category), class: "btn-secondary" do %>
       Add a new transaction
