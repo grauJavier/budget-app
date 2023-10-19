@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-icons = [attach_money, shopping_cart, restaurant,
-directions_bus, sports_esports, home_repair_service,
-favorite, school, move_to_inbox]
+icons = ["attach_money", "shopping_cart", "restaurant",
+"directions_bus", "sports_esports", "home_repair_service",
+"favorite", "school", "move_to_inbox"]
 
 testUser1 = User.create!(
   name: "Test User 1",
