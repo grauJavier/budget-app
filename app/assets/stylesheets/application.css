@@ -134,11 +134,13 @@ a {
   font-style: italic;
 }
 
+/* stylelint-disable */
 .full-screen {
   padding-top: 3rem;
   height: 100dvh;
   width: 100dvw;
 }
+/* stylelint-enable */
 
 .p-1 {
   padding: 1rem;
